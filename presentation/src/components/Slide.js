@@ -8,6 +8,9 @@ const Background = styled.div`
   background-image: url('${props => props.image}');
   background-size: cover;
   background-position: center top;
+  position: absolute;
+  left: 0;
+  top: 0;
 `
 
 const Container = styled.div`
@@ -17,20 +20,31 @@ const Container = styled.div`
   background-color: ${props => props.background};
 `
 
-function Slide ({
-  color,
-  background='rgba(0,0,0,0.7)',
-  image='',
-  children
-}) {
-  return (
-    <Background image={image}>
-      <Container background={background}>
-        {children}
-        <Nav color={color} />
-      </Container>
-    </Background>
-  )
+function slide (PassedComponent) {
+  return function Slide (props) {
+    const {
+      show,
+      color='white',
+      background='rgba(0,0,0,0.7)',
+      image=''
+    } = props
+    return (
+      <Background className={show ? 'animated fadeIn' : 'animated fadeOut'} image={image}>
+        <Container background={background}>
+          <PassedComponent
+            {...{
+              ...props,
+              show,
+              color,
+              background,
+              image
+            }}
+          />
+          <Nav color={color} />
+        </Container>
+      </Background>
+    )
+  }
 }
 
-export default Slide
+export default slide

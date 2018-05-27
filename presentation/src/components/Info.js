@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { github } from 'react-syntax-highlighter/styles/hljs'
-import Slide from './Slide'
+import slide from './Slide'
 
 const Header = styled.h2`
   width: 100%;
@@ -46,16 +46,10 @@ function Info ({
   title = '',
   text = '',
   code = '',
-  color='white',
-  background='rgba(0,0,0,0.7)',
-  image=''
+  color = ''
 }) {
   return (
-    <Slide
-      image={image}
-      color={color}
-      background={background}
-    >
+    <div>
       <Header color={color}>{title}</Header>
       <ColumnsContainer>
         <Text color={color}>{text}</Text>
@@ -69,8 +63,8 @@ function Info ({
           </SyntaxHighlighter>
         </Code>
       </ColumnsContainer>
-    </Slide>
+    </div>
   )
 }
 
-export default Info
+export default slide(Info)

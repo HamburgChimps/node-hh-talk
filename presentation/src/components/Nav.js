@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from 'react-fontawesome'
 import styled from 'styled-components'
+import { StoreContext } from '../Store'
 
 const Container = styled.div`
   width: 100%;
@@ -20,14 +21,18 @@ const Button = styled.div`
 
 function Nav ({ color }) {
   return (
-    <Container>
-      <Button color={color}>
-        <Icon name={'chevron-left'} />
-      </Button>
-      <Button color={color}>
-        <Icon name={'chevron-right'} />
-      </Button>
-    </Container>
+    <StoreContext.Consumer>
+      {({ up, down }) => (
+        <Container>
+          <Button onClick={down} color={color}>
+            <Icon name={'chevron-left'} />
+          </Button>
+          <Button onClick={up} color={color}>
+            <Icon name={'chevron-right'} />
+          </Button>
+        </Container>
+      )}
+    </StoreContext.Consumer>
   )
 }
 
