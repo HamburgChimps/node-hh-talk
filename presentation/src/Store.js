@@ -11,24 +11,30 @@ class StoreProvider extends Component {
   }
 
   up () {
-    if (this.props.numOfSlides - 1 > this.state.index) {
-      this.setState(prevState => ({ index: prevState.index + 1 }))
-    }
+    this.setState(prevState => ({ index: prevState.index + 1 }))
   }
 
   down () {
-    if (this.state.index > 0) {
-      this.setState(prevState => ({ index: prevState.index - 1 }))
-    }
+    this.setState(prevState => ({ index: prevState.index - 1 }))
   }
 
   render () {
+    const { numOfSlides } = this.props
     const { index } = this.state
     const up = this.up
     const down = this.down
-
+    const showUp = numOfSlides - 1 > index
+    const showDown = index > 0
     return (
-      <StoreContext.Provider value={{ index, up, down }}>
+      <StoreContext.Provider
+        value={{
+          index,
+          up,
+          down,
+          showUp,
+          showDown
+        }}
+      >
         {this.props.children}
       </StoreContext.Provider>
     )

@@ -29,7 +29,11 @@ function slide (PassedComponent) {
       image=''
     } = props
     return (
-      <Background className={show ? 'animated fadeIn' : 'animated fadeOut'} image={image}>
+      <Background
+        className={show ? 'animated fadeIn' : 'animated fadeOut'}
+        style={{display: show ? 'inherit' : 'none'}}
+        image={image}
+      >
         <Container background={background}>
           <PassedComponent
             {...{

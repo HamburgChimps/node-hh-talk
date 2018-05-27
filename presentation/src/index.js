@@ -9,6 +9,7 @@ injectGlobal`
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    background-color: black;
   }
   * {
     box-sizing: border-box

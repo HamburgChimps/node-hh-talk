@@ -17,19 +17,35 @@ const Button = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
+  ${props => props.onlyOne ? `
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  ` : ''}
 `
 
 function Nav ({ color }) {
   return (
     <StoreContext.Consumer>
-      {({ up, down }) => (
+      {({ up, down, showUp, showDown }) => (
         <Container>
-          <Button onClick={down} color={color}>
-            <Icon name={'chevron-left'} />
-          </Button>
-          <Button onClick={up} color={color}>
-            <Icon name={'chevron-right'} />
-          </Button>
+          {showDown && (
+            <Button
+              onClick={down}
+              color={color}
+            >
+              <Icon name={'chevron-left'} />
+            </Button>
+          )}
+          {showUp && (
+            <Button
+              onClick={up}
+              color={color}
+              onlyOne={!showDown}
+            >
+              <Icon name={'chevron-right'} />
+            </Button>
+          )}
         </Container>
       )}
     </StoreContext.Consumer>
