@@ -1,7 +1,7 @@
 import React from 'react'
 import Icon from 'react-fontawesome'
 import styled from 'styled-components'
-import { StoreContext } from '../Store'
+import { StoreContext } from '../../Store'
 
 const Container = styled.div`
   width: 100%;

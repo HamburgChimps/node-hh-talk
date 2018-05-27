@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { github } from 'react-syntax-highlighter/styles/hljs'
-import slide from './Slide'
+import slide from '../Slide'
 import Markdown from './Markdown'
 
 const Header = styled.h2`

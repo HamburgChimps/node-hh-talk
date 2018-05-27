@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import slide from './Slide'
+import slide from '../Slide'
 import Markdown from './Markdown'
 
 const Header = styled.h2`

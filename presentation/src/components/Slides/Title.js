@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import slide from './Slide'
+import slide from '../Slide'
 
 const Container = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
 `
 const Header = styled.h2`
-  font-size: 3.3em;
+  font-size: 2.7em;
   color: ${props => props.color};
   padding: 0 20px;
   margin: 0;
