@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { github } from 'react-syntax-highlighter/styles/hljs'
 import slide from './Slide'
+import Markdown from './Markdown'
 
 const Header = styled.h2`
   width: 100%;
@@ -33,7 +34,7 @@ const Text = styled.p`
   line-height: 2em;
   color: ${props => props.color};
 `
-const Code = styled.pre`
+const CodePre = styled.pre`
   overflow: auto;
   width: 50%;
   height: 85vh;
@@ -42,7 +43,7 @@ const Code = styled.pre`
   font-size: 1.2em;
 `
 
-function Info ({
+function Code ({
   title = '',
   text = '',
   code = '',
@@ -52,8 +53,10 @@ function Info ({
     <div>
       <Header color={color}>{title}</Header>
       <ColumnsContainer>
-        <Text color={color}>{text}</Text>
-        <Code>
+        <Text color={color}>
+          <Markdown text={text} color={color} />
+        </Text>
+        <CodePre>
           <SyntaxHighlighter
             customStyle={{minHeight: '75vh'}}
             language='javascript'
@@ -61,10 +64,10 @@ function Info ({
           >
             {code}
           </SyntaxHighlighter>
-        </Code>
+        </CodePre>
       </ColumnsContainer>
     </div>
   )
 }
 
-export default slide(Info)
+export default slide(Code)

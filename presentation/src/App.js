@@ -4,7 +4,7 @@ import Slides from './components/Slides'
 
 function App () {
   return (
-    <StoreProvider numOfSlides={3}>
+    <StoreProvider numOfSlides={4}>
       <Slides />
     </StoreProvider>
   )
