@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import StoreProvider from './Store'
+import Header from './components/Header'
+import User from './components/User'
+import Form from './components/Form'
+import Items from './components/Items'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+function App () {
+  return (
+    <StoreProvider>
+      <Header title='Shopping List' />
+      <User />
+      <Form />
+      <Items />
+    </StoreProvider>
+  )
 }
 
-export default App;
+export default App

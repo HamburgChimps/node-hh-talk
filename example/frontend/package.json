@@ -1,13 +1,16 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
   "dependencies": {
     "apollo-boost": "^0.1.6",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
     "react": "^16.4.0",
     "react-apollo": "^2.1.4",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
