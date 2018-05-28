@@ -1,0 +1,26 @@
+input CreateItemInput {
+  name: String!
+  price: Int!
+  user: UserInput!
+}
+
+input UpdateItemInput {
+  id: ID!
+  name: String
+  price: Int
+  user: UserInput
+}
+
+input UserInput {
+  firstname: String!
+  lastname: String!
+}
+
+input DeleteItemInput {
+  id: ID!
+}
+
+type Response {
+  success: Boolean
+  message: String
+}

@@ -34,7 +34,6 @@ function App () {
           <Container>
             {config.map((slide, i) => {
               const SlideTemplate = determineSlide(slide.type)
-              console.log(slide)
               return (
                 <SlideTemplate key={i} show={i === index} {...slide.content} />
               )

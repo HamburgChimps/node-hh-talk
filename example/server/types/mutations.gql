@@ -1,2 +1,5 @@
 type Mutation {
+  createItem (input: CreateItemInput): Response
+  updateItem (input: UpdateItemInput): Response
+  deleteItem (input: DeleteItemInput): Response
 }
