@@ -188,7 +188,18 @@ export default [
     type: 'text',
     content: {
       title: 'REST VS GraphQL Overview',
-      text: 'rem ipsum dolor[br] amet pour-over organic mustache butcher prism github.com/jacobtheevans stumptown occupy kogi direct trade sustainable. Crucifix irony banh mi, tofu humblebrag poutine vape fanny pack thundercats actually. Meggings DIY listicle cronut. Umami mustache shabby chic microdosing salvia selfies poke. Kombucha pitchfork iceland four dollar toast man bun polaroid tousled health goth subway tile kogi tofu bushwick vape post-ironic. Pabst cred synth scenester. Asymmetrical affogato banjo, roof party chicharrones williamsburg man braid brooklyn fanny pack.',
+      text: `
+      REST is not different from GraphQL. [br]
+      GraphQL is just an extension built on the REST interface. [br]
+      They both allow us to do CRUD operations on ressources. [br]
+
+      The difference REST is an architectural concept for network based software, [br]
+      but has no official tools or specification, it is just designed to decouple [br]
+      an API from a client. [br]
+
+      GraphlQL is query language, specification and collection of tools designed [br]
+      to oparate over a single endpoint.
+      `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -198,7 +209,9 @@ export default [
     type: 'text',
     content: {
       title: 'HTTP Verbs VS Queries/Mutations',
-      text: 'rem ipsum dolor[br] amet pour-over organic mustache butcher prism github.com/jacobtheevans stumptown occupy kogi direct trade sustainable. Crucifix irony banh mi, tofu humblebrag poutine vape fanny pack thundercats actually. Meggings DIY listicle cronut. Umami mustache shabby chic microdosing salvia selfies poke. Kombucha pitchfork iceland four dollar toast man bun polaroid tousled health goth subway tile kogi tofu bushwick vape post-ironic. Pabst cred synth scenester. Asymmetrical affogato banjo, roof party chicharrones williamsburg man braid brooklyn fanny pack.',
+      text: `
+      GET /city/{id}
+      `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -208,7 +221,7 @@ export default [
     type: 'text',
     content: {
       title: 'Differences in Frontend Architecture',
-      text: 'rem ipsum dolor[br] amet pour-over organic mustache butcher prism github.com/jacobtheevans stumptown occupy kogi direct trade sustainable. Crucifix irony banh mi, tofu humblebrag poutine vape fanny pack thundercats actually. Meggings DIY listicle cronut. Umami mustache shabby chic microdosing salvia selfies poke. Kombucha pitchfork iceland four dollar toast man bun polaroid tousled health goth subway tile kogi tofu bushwick vape post-ironic. Pabst cred synth scenester. Asymmetrical affogato banjo, roof party chicharrones williamsburg man braid brooklyn fanny pack.',
+      text: ``,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -218,17 +231,43 @@ export default [
     type: 'text',
     content: {
       title: 'Is it more react-y?',
-      text: 'rem ipsum dolor[br] amet pour-over organic mustache butcher prism github.com/jacobtheevans stumptown occupy kogi direct trade sustainable. Crucifix irony banh mi, tofu humblebrag poutine vape fanny pack thundercats actually. Meggings DIY listicle cronut. Umami mustache shabby chic microdosing salvia selfies poke. Kombucha pitchfork iceland four dollar toast man bun polaroid tousled health goth subway tile kogi tofu bushwick vape post-ironic. Pabst cred synth scenester. Asymmetrical affogato banjo, roof party chicharrones williamsburg man braid brooklyn fanny pack.',
+      text: ``,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
     }
   },
   {
-    type: 'text',
+    type: 'code',
     content: {
-      title: 'Some thoughs on backend architecture',
-      text: '',
+      title: 'Some thoughs on code organization',
+      text: ``,
+      code: `
+├── connectors                                                                                                                                                                                                                                                                  
+│   ├── Auth                                                                                                                                                                                                                                                                    
+│   ├── Grant                                                                                                                                                                                                                                                                   
+│   ├── Group                                                                                                                                                                                                                                                                   
+│   ├── index.js                                                                                                                                                                                                                                                                
+│   ├── Token                                                                                                                                                                                                                                                                   
+│   ├── User                                                                                                                                                                                                                                                                    
+│   └── utils                                                                                                                                                                                                                                                                   
+├── resolvers                                                                                                                                                                                                                                                                   
+│   ├── Grant.js                                                                                                                                                                                                                                                                
+│   ├── Group.js                                                                                                                                                                                                                                                                
+│   ├── index.js                                                                                                                                                                                                                                                                
+│   ├── Mutation.js                                                                                                                                                                                                                                                             
+│   ├── Query.js                                                                                                                                                                                                                                                                
+│   ├── Token.js                                                                                                                                                                                                                                                                
+│   └── User.js                                                                                                                                                                                                                                                                 
+├── schema.js                                                                                                                                                                                                                                                                   
+├── Server.js                                                                                                                                                                                                                                                                   
+└── types                                                                                                                                                                                                                                                                       
+    ├── index.js
+    ├── inputs.gql
+    ├── mutations.gql
+    ├── query.gql
+    └── schema.gql
+      `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -238,7 +277,14 @@ export default [
     type: 'code',
     content: {
       title: 'Moving Forward with Graphql',
-      text: 'Topics to explore',
+      text: `
+      - authorization
+      Multiple authorization strategies
+      connectors
+    - load balancing
+    - advanced queries
+     fragments
+      `,
       code: `
       function test () {
         return 'test'
