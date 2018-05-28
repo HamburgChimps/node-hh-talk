@@ -3,7 +3,7 @@ export default [
     type: 'title',
     content: {
       title: 'GraphQL: A Primer',
-      names: ['@chopmann', '@jacobtheevans'],
+      names: ['@jacobtheevans', '@chopmann'],
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
