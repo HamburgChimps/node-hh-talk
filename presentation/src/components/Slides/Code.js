@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { github } from 'react-syntax-highlighter/styles/hljs'
+import { github } from 'react-syntax-highlighter/styles/prism'
 import slide from '../Slide'
 import Markdown from './Markdown'
 
@@ -46,7 +46,8 @@ function Code ({
   title = '',
   text = '',
   code = '',
-  color = ''
+  color = '',
+  language = 'javascript'
 }) {
   return (
     <div>
@@ -57,8 +58,8 @@ function Code ({
         </Text>
         <CodePre>
           <SyntaxHighlighter
-            customStyle={{minHeight: '75vh'}}
-            language='javascript'
+            customStyle={{ minHeight: '75vh' }}
+            language={language}
             style={github}
           >
             {code}

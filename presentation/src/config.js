@@ -58,32 +58,33 @@ export default [
     content: {
       title: 'GraphQL Types',
       text: `
-      Scalars
+        Scalars
+        [br]
+        - Int
+        [br]
+        - Float
+        [br]
+        - String
+        [br]
+        - Boolean
+        [br]
+        - ID:
+        [br]
+        -- Refetch an object
+        [br]
+        -- Key for a cache
+        [br]
+        -- Serializable to String
+        [br]
+      Objects
       [br]
-      - Int
+      Input Objects
       [br]
-      - Float
+      - Why? Objects can contain fields that express circular references or other complex types.
       [br]
-      - String
-      [br]
-      - Boolean
-      [br]
-      - ID:
-      [br]
-      -- Refetch an object
-      [br]
-      -- Key for a cache
-      [br]
-      -- Serializable to String
-      [br]
-    Objects
-    [br]
-    Input Objects
-    [br]
-    - Why? Objects can contain fields that express circular references or other complex types.
-    [br]
-    Lists
-    `,
+      Lists
+      `,
+      language: 'graphql',
       code: `
       type City {
         id: ID
@@ -125,6 +126,7 @@ export default [
       [br]
       - Has selection set
       `,
+      language: 'graphql',
       code: `
       type Query {
         allCities: [City]
@@ -163,6 +165,7 @@ export default [
       [br]
       - Has selection set
       `,
+      language: 'graphql',
       code: `
       input discoverCityInput {
         countryCode: String!
@@ -191,7 +194,7 @@ export default [
   {
     type: 'text',
     content: {
-      title: 'REST VS GraphQL Overview',
+      title: 'REST VS GraphQL',
       text: `
       REST is not different from GraphQL. [br]
       GraphQL is just an extension built on the REST interface. [br]
@@ -215,9 +218,18 @@ export default [
       title: 'Differences in Frontend Architecture',
       text: `It is incredibly straightforward to fetch data when using GraphQL.
       [br]
-      Instead of requesting needed data from multi endpoints and then building a display model,
+      Normal REST requires requesting needed data from multi endpoints and
+      [br] then building a display model.
       [br]
-      GraphQL enables to you to request only the data you want from a server with a single request.`,
+      GraphQL enables to you to request only the data you want from a server with
+      [br]
+      a single request and have the data model as you would use it.
+      [br]
+      Because of this level of abstraction, GraphQL speeds up development and makes
+      [br]
+       code much easier to maintain.
+      `,
+      language: 'graphql',
       code: `
       Full City Resource REST:
         GET /city/{id}
@@ -249,7 +261,7 @@ export default [
   {
     type: 'text',
     content: {
-      title: 'Is it more react-y?',
+      title: 'React with GraphQL',
       text: ``,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
@@ -257,57 +269,59 @@ export default [
     }
   },
   {
-    type: 'code',
+    type: 'code-only',
     content: {
       title: 'Some thoughts on code organization',
-      text: ``,
+      language: 'graphql',
       code: `
-├── connectors
-│   ├── Auth
-│   ├── Grant
-│   ├── Group
-│   ├── index.js
-│   ├── Token
-│   ├── User
-│   └── utils
-├── resolvers
-│   ├── Grant.js
-│   ├── Group.js
-│   ├── index.js
-│   ├── Mutation.js
-│   ├── Query.js
-│   ├── Token.js
-│   └── User.js
-├── schema.js
-├── Server.js
-└── types
-    ├── index.js
-    ├── inputs.gql
-    ├── mutations.gql
-    ├── query.gql
-    └── schema.gql
-      `,
+  ├── connectors
+  │   ├── Auth
+  │   ├── Grant
+  │   ├── Group
+  │   ├── index.js
+  │   ├── Token
+  │   ├── User
+  │   └── utils
+  │ 
+  ├── resolvers
+  │   ├── Grant.js
+  │   ├── Group.js
+  │   ├── index.js
+  │   ├── Mutation.js
+  │   ├── Query.js
+  │   ├── Token.js
+  │   └── User.js
+  │ 
+  ├── schema.js
+  ├── Server.js
+  │ 
+  └── types
+      ├── index.js
+      ├── inputs.gql
+      ├── mutations.gql
+      ├── query.gql
+      └── schema.gql
+        `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
     }
   },
   {
-    type: 'code',
+    type: 'text',
     content: {
-      title: 'Moving Forward with Graphql',
+      title: 'Moving Forward with GraphQL',
       text: `
-      - authorization
-      Multiple authorization strategies
-      connectors
-    - load balancing
-    - advanced queries
-     fragments
+      - Authorization (Multiple authorization strategies)
+      [br]
+      - Connectors
+      [br]
+      - Load balancing
+      [br]
+      - Advanced queries
+      [br]
+      - Fragments
       `,
-      code: `
-      function test () {
-        return 'test'
-      }`,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
