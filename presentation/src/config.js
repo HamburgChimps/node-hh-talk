@@ -58,31 +58,31 @@ export default [
     content: {
       title: 'GraphQL Types',
       text: `
-      - Scalars
+      Scalars
       [br]
-        Int
+      - Int
       [br]
-        Float
+      - Float
       [br]
-        String
+      - String
       [br]
-        Boolean
+      - Boolean
       [br]
-        ID:
-        [br]
-          refetch an object
-          [br]
-          key for a cache
-          [br]
-          serializable to String
-          [br]
-    - Objects
+      - ID:
+      [br]
+      -- Refetch an object
+      [br]
+      -- Key for a cache
+      [br]
+      -- Serializable to String
+      [br]
+    Objects
     [br]
-    - Input Objects
+    Input Objects
     [br]
-      Why? Objects can contain fields that express circular references or other complex types.
+    - Why? Objects can contain fields that express circular references or other complex types.
     [br]
-    - Lists
+    Lists
     `,
       code: `
       type City {
@@ -113,6 +113,12 @@ export default [
     content: {
       title: 'GraphQL Queries',
       text: `
+      Queries in GraphQL are comparable to a REST GET in that allow to ask the server for data.
+      [br]
+      On top of that we get the full power to ask for exactly what we need.
+      [br]
+      Query Properties:
+      [br]
       - Read‐only fetch
       [br]
       - Can have arguments
@@ -145,6 +151,12 @@ export default [
     content: {
       title: 'GraphQL Mutations',
       text: `
+      Mutations in GraphQL are comparable to a REST POST/PUT/DELETE
+      [br]
+      In that they allow you to change data on the server.
+      [br]
+      Mutation Properties:
+      [br]
       - Write followed by a fetch
       [br]
       - Can have arguments
@@ -170,17 +182,7 @@ export default [
     type: 'text',
     content: {
       title: 'GraphiQL - GraphQL Tooling',
-      text: '',
-      image: 'https://i.imgur.com/x8nLLVt.jpg',
-      color: 'white',
-      background: 'rgba(0,0,0,0.7)'
-    }
-  },
-  {
-    type: 'text',
-    content: {
-      title: 'Text Definition vs JavaScript',
-      text: '',
+      text: 'Developing queries has never been so fun!',
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -193,14 +195,14 @@ export default [
       text: `
       REST is not different from GraphQL. [br]
       GraphQL is just an extension built on the REST interface. [br]
-      They both allow us to do CRUD operations on ressources. [br]
+      They both allow us to do CRUD operations on resources. [br]
 
       The difference REST is an architectural concept for network based software, [br]
       but has no official tools or specification, it is just designed to decouple [br]
       an API from a client. [br]
 
       GraphlQL is query language, specification and collection of tools designed [br]
-      to oparate over a single endpoint.
+      to operate over a single endpoint.
       `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
@@ -208,22 +210,37 @@ export default [
     }
   },
   {
-    type: 'text',
-    content: {
-      title: 'HTTP Verbs VS Queries/Mutations',
-      text: `
-      GET /city/{id}
-      `,
-      image: 'https://i.imgur.com/x8nLLVt.jpg',
-      color: 'white',
-      background: 'rgba(0,0,0,0.7)'
-    }
-  },
-  {
-    type: 'text',
+    type: 'code',
     content: {
       title: 'Differences in Frontend Architecture',
-      text: ``,
+      text: `It is incredibly straightforward to fetch data when using GraphQL.
+      [br]
+      Instead of requesting needed data from multi endpoints and then building a display model,
+      [br]
+      GraphQL enables to you to request only the data you want from a server with a single request.`,
+      code: `
+      Full City Resource REST:
+        GET /city/{id}
+        GET /city/{id}/country
+        GET /city/{id}/districts
+
+      Full City Resource GraphQL:
+        query {
+          city (id: { id }) {
+            id
+            discovered
+            name
+            population
+            costFactor
+            country {
+              code
+            }
+            districts {
+              name
+            }
+          }
+        }
+      `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -242,7 +259,7 @@ export default [
   {
     type: 'code',
     content: {
-      title: 'Some thoughs on code organization',
+      title: 'Some thoughts on code organization',
       text: ``,
       code: `
 ├── connectors

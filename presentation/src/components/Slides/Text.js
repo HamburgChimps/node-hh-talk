@@ -20,7 +20,7 @@ const TextSection = styled.p`
   height: 80vh;
   margin: 0;
   padding: 20px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   line-height: 2em;
   color: ${props => props.color};
 `
