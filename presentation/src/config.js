@@ -114,7 +114,9 @@ export default [
     content: {
       title: 'GraphQL Queries',
       text: `
-      Queries in GraphQL are comparable to a REST GET in that allow to ask the server for data.
+      Queries in GraphQL are comparable to a HTTP GET in that they allow us to ask
+      [br]
+      the server for data.
       [br]
       On top of that we get the full power to ask for exactly what we need.
       [br]
@@ -161,8 +163,8 @@ export default [
       language: 'graphql',
       code: `
       City: {
-        city(obj, args, context) {
-          return context.db.getCityByCode(obj.cityCode)
+        country (obj, args, context) {
+          return context.db.getCountryByCode(obj.countryCode)
         }
       }
       `,
@@ -176,7 +178,7 @@ export default [
     content: {
       title: 'GraphQL Mutations',
       text: `
-      Mutations in GraphQL are comparable to a REST POST/PUT/DELETE
+      Mutations in GraphQL are comparable to a HTTP POST/PUT/DELETE
       [br]
       In that they allow you to change data on the server.
       [br]
@@ -282,10 +284,41 @@ export default [
     }
   },
   {
-    type: 'text',
+    type: 'code',
     content: {
       title: 'React with GraphQL',
-      text: ``,
+      text: `Because GraphQL allows you to jt grab the data you want it is perfect
+      [br]
+      for tools like React. Where you can build efficient components that only
+      [br] need specific parts of the data.`,
+      language: 'javascript',
+      code: `
+      export const COUNTRY = gql\`
+        query items ($firstname: String!, $lastname: String!) {
+          items(firstname: $firstname, lastname: $lastname) {
+            id
+            name
+            price
+          }
+        }
+      \`
+
+      function Country () {
+        return (
+          <Query query={COUNTRY}>
+            {({ loading, error, data: { country } = {}}) => {
+              if (loading) return <p>Loading</p>
+              if (error) return <p>{JSON.stringify(error)}</p>
+              return (
+                <div>
+                  <p>Hello welcome to {country}</p>
+                </div>
+              )
+            }}
+          </Query>
+        )
+      }
+      `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
@@ -305,7 +338,7 @@ export default [
   │   ├── Token
   │   ├── User
   │   └── utils
-  │ 
+  │
   ├── resolvers
   │   ├── Grant.js
   │   ├── Group.js
@@ -314,10 +347,10 @@ export default [
   │   ├── Query.js
   │   ├── Token.js
   │   └── User.js
-  │ 
+  │
   ├── schema.js
   ├── Server.js
-  │ 
+  │
   └── types
       ├── index.js
       ├── inputs.gql
