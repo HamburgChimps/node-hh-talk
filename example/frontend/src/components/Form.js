@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Mutation } from 'react-apollo'
+import { CREATE, ITEMS } from '../graphql'
 import { StoreContext } from '../Store'
 
 const Container = styled.form`
@@ -40,10 +42,18 @@ class Form extends Component {
       price: ''
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleClose = this.handleClose.bind(this)
   }
 
   handleChange (e) {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleClose (e) {
+    this.setState({
+      name: '',
+      price: ''
+    })
   }
 
   render () {
@@ -51,24 +61,43 @@ class Form extends Component {
     return (
       <StoreContext.Consumer>
         {({ firstname, lastname }) => (
-          <Container>
-            <Input
-              placeholder='Name'
-              name='name'
-              value={name}
-              onChange={this.handleChange}
-              />
-            <Input
-              placeholder='Price'
-              type='number'
-              name='price'
-              value={price}
-              onChange={this.handleChange}
-            />
-            <Button type='submit'>
-              Add
-            </Button>
-          </Container>
+          <Mutation
+            mutation={CREATE}
+            variables={{input: {
+              name,
+              price,
+              user: {
+                firstname,
+                lastname
+              }
+            }}}
+            refetchQueries={[{ query: ITEMS }]}
+            onCompleted={this.handleClose}
+            >
+            {(create, { data, error }) => (
+              <Container onSubmit={(e) => {
+                e.preventDefault()
+                create()
+              }}>
+                <Input
+                  placeholder='Name'
+                  name='name'
+                  value={name}
+                  onChange={this.handleChange}
+                  />
+                <Input
+                  placeholder='Price'
+                  type='number'
+                  name='price'
+                  value={price}
+                  onChange={this.handleChange}
+                />
+                <Button type='submit'>
+                  Add
+                </Button>
+              </Container>
+            )}
+          </Mutation>
         )}
       </StoreContext.Consumer>
     )

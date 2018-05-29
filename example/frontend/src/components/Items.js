@@ -27,7 +27,7 @@ const Price = styled.h2`
   margin: 0;
 `
 
-function Items ({ title, price }) {
+function Items () {
   return (
     <StoreContext.Consumer>
       {({ firstname, lastname }) => (
@@ -48,7 +48,7 @@ function Items ({ title, price }) {
             )
           }}
         </Query>
-      )}}
+      )}
     </StoreContext.Consumer>
   )
 }
