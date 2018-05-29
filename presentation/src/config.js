@@ -294,11 +294,10 @@ export default [
       language: 'javascript',
       code: `
       export const COUNTRY = gql\`
-        query items ($firstname: String!, $lastname: String!) {
-          items(firstname: $firstname, lastname: $lastname) {
+        query country {
+          country {
             id
             name
-            price
           }
         }
       \`
@@ -311,7 +310,7 @@ export default [
               if (error) return <p>{JSON.stringify(error)}</p>
               return (
                 <div>
-                  <p>Hello welcome to {country}</p>
+                  <p>Hello welcome to {country.name}</p>
                 </div>
               )
             }}
@@ -378,6 +377,28 @@ export default [
       [br]
       - Fragments
       `,
+      image: 'https://i.imgur.com/x8nLLVt.jpg',
+      color: 'white',
+      background: 'rgba(0,0,0,0.7)'
+    }
+  },
+  {
+    type: 'text',
+    content: {
+      title: 'Q and A',
+      text: `
+      Question time and answer time.
+      `,
+      image: 'https://i.imgur.com/x8nLLVt.jpg',
+      color: 'white',
+      background: 'rgba(0,0,0,0.7)'
+    }
+  },
+  {
+    type: 'text',
+    content: {
+      title: 'Thanks for your time',
+      text: ` Check us out at https://github.com/HamburgChimps`,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
       background: 'rgba(0,0,0,0.7)'
