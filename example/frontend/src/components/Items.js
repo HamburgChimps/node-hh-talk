@@ -1,54 +1,87 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Query } from 'react-apollo'
-import { ITEMS } from '../graphql'
+import { Query, Mutation } from 'react-apollo'
+import { ITEMS, DELETE } from '../graphql'
 import { StoreContext } from '../Store'
 
 const Container = styled.div`
-  width: 100%;
-  height: 20vh;
+  width: 750px;
+  min-height: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f44336;
+  margin:  20px auto;
+  border-bottom: 1px solid grey;
 `
-const Title = styled.h2`
-  font-size: 4em;
-  color: white;
+const Title = styled.p`
+  font-size: 1.3em;
+  color: black;
   padding: 0 20px;
-  margin: 0;
+  margin: 16px 0;
+  flex-grow: 1;
 `
 
-const Price = styled.h2`
-  font-size: 4em;
-  color: white;
+const Price = styled.p`
+  font-size: 1.3em;
+  color: black;
   padding: 0 20px;
-  margin: 0;
+  margin: 15px 0;
+  flex-grow: 1;
+  text-align: right;
 `
+
+function Item ({
+  id,
+  name,
+  price,
+  firstname,
+  lastname
+}) {
+  return (
+    <Mutation
+      mutation={DELETE}
+      variables={{input: { id }}}
+      refetchQueries={[{ query: ITEMS, variables: { firstname, lastname } }]}
+      >
+      {(deleteItem, { data, error }) => (
+        <Container onClick={deleteItem}>
+          <Title>{name}</Title>
+          <Price>€ {price}</Price>
+        </Container>
+      )}
+    </Mutation>
+  )
+}
 
 function Items () {
   return (
     <StoreContext.Consumer>
-      {({ firstname, lastname }) => (
-        <Query query={ITEMS} variables={{ firstname, lastname }}>
-          {({ loading, error, data: { items = [] } = {} }) => {
-            if (loading) return <p>Loading</p>
-            if (error) return <p>{JSON.stringify(error)}</p>
-            if (items.length === 0) return false
-            return (
-              <div>
-                {items.map(({ name, price }) => (
-                  <Container>
-                    <Title>{name}</Title>
-                    <Price>{price}</Price>
-                  </Container>
-                ))}
-              </div>
-            )
-          }}
-        </Query>
-      )}
+      {({ firstname, lastname }) => {
+        if (!firstname || !lastname) return false
+        return (
+          <Query query={ITEMS} variables={{ firstname, lastname }}>
+            {({ loading, error, data: { items = [] } = {} }) => {
+              if (loading) return <p>Loading</p>
+              if (error) return <p>{JSON.stringify(error)}</p>
+              if (items.length === 0) return false
+              return (
+                <div>
+                  {items.map(({ name, price, id }, i) => (
+                    <Item
+                      key={id}
+                      id={id}
+                      name={name}
+                      price={price}
+                      firstname={firstname}
+                      lastname={lastname}
+                    />
+                  ))}
+                </div>
+              )
+            }}
+          </Query>
+        )
+      }}
     </StoreContext.Consumer>
   )
 }

@@ -19,7 +19,9 @@ class ItemConnector {
   }
 
   readAll ({ firstname, lastname }) {
-    return this._items.filter((item) => firstname + lastname !== item.firstname + item.lastname)
+    return this._items.filter(({ user }) => (
+      firstname + lastname === user.firstname + user.lastname
+    ))
   }
 
   readUsers () {
@@ -55,7 +57,7 @@ class ItemConnector {
     }
   }
 
-  delete (id) {
+  delete ({ id }) {
     if (!this._items.find(item => id === item.id)) {
       return {
         success: false,

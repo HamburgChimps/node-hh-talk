@@ -7,8 +7,8 @@ const mutation = {
   updateItem (root, { input }) {
     return item.update(input)
   },
-  deleteItem (root, { id }) {
-    return item.delete(id)
+  deleteItem (root, { input }) {
+    return item.delete(input)
   }
 }
 

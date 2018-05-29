@@ -10,7 +10,7 @@ const Container = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 0 auto 10px auto;
 `
 const Input = styled.input`
   flex-grow: 1
@@ -71,7 +71,7 @@ class Form extends Component {
                 lastname
               }
             }}}
-            refetchQueries={[{ query: ITEMS }]}
+            refetchQueries={[{ query: ITEMS, variables: { firstname, lastname } }]}
             onCompleted={this.handleClose}
             >
             {(create, { data, error }) => (
@@ -92,7 +92,7 @@ class Form extends Component {
                   value={price}
                   onChange={this.handleChange}
                 />
-                <Button type='submit'>
+                <Button type='submit' disabled={!firstname || !lastname}>
                   Add
                 </Button>
               </Container>
