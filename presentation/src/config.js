@@ -151,6 +151,29 @@ export default [
   {
     type: 'code',
     content: {
+      title: 'GraphQL Resolvers',
+      text: `
+      Each field on each type is backed by a function called the resolver. [br]
+      When a field is executed, the corresponding resolver is called to produce the next value. [br]
+      If a field produces a scalar value like a string or number, then the execution completes. [br]
+      GraphQL queries always end at scalar values.
+      `,
+      language: 'graphql',
+      code: `
+      City: {
+        city(obj, args, context) {
+          return context.db.getCityByCode(obj.cityCode)
+        }
+      }
+      `,
+      image: 'https://i.imgur.com/x8nLLVt.jpg',
+      color: 'white',
+      background: 'rgba(0,0,0,0.7)'
+    }
+  },
+  {
+    type: 'code',
+    content: {
       title: 'GraphQL Mutations',
       text: `
       Mutations in GraphQL are comparable to a REST POST/PUT/DELETE
