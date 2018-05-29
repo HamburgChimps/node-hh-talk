@@ -13,17 +13,17 @@ export default [
     type: 'text',
     content: {
       title: 'Who we are',
-      text: `Jacob Evans and Cornelio Hopmann are NodeJS developers in an OpenSource group 
+      text: `Jacob Evans and Cornelio Hopmann are NodeJS developers in an OpenSource group
       [br]
       called HamburgChimps currently working in Cybus on Industrial IoT topics.
       [br]
       Enthusiast of GraphQL who want to share their recently aquired knowledge with the community.
       [br]
-      Jacob: Lived in Hamburg for a few months, enjoys getting mad while playing board games, and learning new things.
+      Jacob has lived in Hamburg for a few months, enjoys getting mad while playing board games, and learning new things.
       [br]
       https://github.com/jacobtheevans
       [br]
-      Cor: Lived in Hamburg almost two years, grew up playing Tropico and likes thinking about systems.
+      Cor has lived in Hamburg almost two years, grew up playing Tropico and likes thinking about systems.
       [br]
       https://github.com/chopmann
       `,
@@ -68,7 +68,7 @@ export default [
       [br]
         Boolean
       [br]
-        ID: 
+        ID:
         [br]
           refetch an object
           [br]
@@ -101,7 +101,7 @@ export default [
         countryCode: String!
         name: String!
         population: Int
-      } 
+      }
       `,
       image: 'https://i.imgur.com/x8nLLVt.jpg',
       color: 'white',
@@ -113,11 +113,11 @@ export default [
     content: {
       title: 'GraphQL Queries',
       text: `
-      are read‐only fetch
+      - Read‐only fetch
       [br]
-      can have arguments
+      - Can have arguments
       [br]
-      has selection set
+      - Has selection set
       `,
       code: `
       type Query {
@@ -145,9 +145,11 @@ export default [
     content: {
       title: 'GraphQL Mutations',
       text: `
-      - a write followed by a fetch
+      - Write followed by a fetch
       [br]
-      - same as a query
+      - Can have arguments
+      [br]
+      - Has selection set
       `,
       code: `
       input discoverCityInput {
@@ -243,25 +245,25 @@ export default [
       title: 'Some thoughs on code organization',
       text: ``,
       code: `
-├── connectors                                                                                                                                                                                                                                                                  
-│   ├── Auth                                                                                                                                                                                                                                                                    
-│   ├── Grant                                                                                                                                                                                                                                                                   
-│   ├── Group                                                                                                                                                                                                                                                                   
-│   ├── index.js                                                                                                                                                                                                                                                                
-│   ├── Token                                                                                                                                                                                                                                                                   
-│   ├── User                                                                                                                                                                                                                                                                    
-│   └── utils                                                                                                                                                                                                                                                                   
-├── resolvers                                                                                                                                                                                                                                                                   
-│   ├── Grant.js                                                                                                                                                                                                                                                                
-│   ├── Group.js                                                                                                                                                                                                                                                                
-│   ├── index.js                                                                                                                                                                                                                                                                
-│   ├── Mutation.js                                                                                                                                                                                                                                                             
-│   ├── Query.js                                                                                                                                                                                                                                                                
-│   ├── Token.js                                                                                                                                                                                                                                                                
-│   └── User.js                                                                                                                                                                                                                                                                 
-├── schema.js                                                                                                                                                                                                                                                                   
-├── Server.js                                                                                                                                                                                                                                                                   
-└── types                                                                                                                                                                                                                                                                       
+├── connectors
+│   ├── Auth
+│   ├── Grant
+│   ├── Group
+│   ├── index.js
+│   ├── Token
+│   ├── User
+│   └── utils
+├── resolvers
+│   ├── Grant.js
+│   ├── Group.js
+│   ├── index.js
+│   ├── Mutation.js
+│   ├── Query.js
+│   ├── Token.js
+│   └── User.js
+├── schema.js
+├── Server.js
+└── types
     ├── index.js
     ├── inputs.gql
     ├── mutations.gql
