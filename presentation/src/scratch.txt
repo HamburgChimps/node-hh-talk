@@ -1,0 +1,97 @@
+Who are we?
+
+- Jacob Evans
+
+- Cornelio Hopmann
+
+What is GraphQL?
+
+- Not an implementation
+- Not owned by Facebook
+- A Query Language
+- A Specification
+- Has multiple Implementations
+
+GraphQL Types
+- Scalars
+  Int
+  Float
+  String
+  Boolean
+
+  ID: 
+  refetch an object
+  key for a cache
+  serializable to String
+
+- Objects
+- Input Objects
+  Why? Objects can contain fields that express circular references.
+
+- Lists
+  [Pet]
+
+GraphQL Queries
+ read‐only fetch
+ selection set
+ can have arguments
+ "An operation selects the set of information it needs, and will receive exactly that information and nothing more, avoiding over‐fetching and under‐fetching data."
+
+GraphQL Mutations
+ - a write followed by a fetch
+ - same as a query
+
+GraphiQL - GraphQL Tooling
+show directly
+
+(Text Definition vs JavaScript)
+
+REST VS GraphQL Overview
+ -
+HTTP Verbs VS Queries/Mutations
+ - 
+Differences in Frontend Architecture
+ - 
+Is it more react-y?
+ - why....?
+
+Some thoughs on 
+ - code organization
+ .                                                                                                                                                                                                                                                                               
+├── connectors                                                                                                                                                                                                                                                                  
+│   ├── Auth                                                                                                                                                                                                                                                                    
+│   ├── Grant                                                                                                                                                                                                                                                                   
+│   ├── Group                                                                                                                                                                                                                                                                   
+│   ├── index.js                                                                                                                                                                                                                                                                
+│   ├── Token                                                                                                                                                                                                                                                                   
+│   ├── User                                                                                                                                                                                                                                                                    
+│   └── utils                                                                                                                                                                                                                                                                   
+├── resolvers                                                                                                                                                                                                                                                                   
+│   ├── Grant.js                                                                                                                                                                                                                                                                
+│   ├── Group.js                                                                                                                                                                                                                                                                
+│   ├── index.js                                                                                                                                                                                                                                                                
+│   ├── Mutation.js                                                                                                                                                                                                                                                             
+│   ├── Query.js                                                                                                                                                                                                                                                                
+│   ├── Token.js                                                                                                                                                                                                                                                                
+│   └── User.js                                                                                                                                                                                                                                                                 
+├── schema.js                                                                                                                                                                                                                                                                   
+├── Server.js                                                                                                                                                                                                                                                                   
+└── types                                                                                                                                                                                                                                                                       
+    ├── index.js
+    ├── inputs.gql
+    ├── mutations.gql
+    ├── query.gql
+    └── schema.gql
+
+
+Moving Forward with Graphql (things we want to explore)
+ - authorization
+   Multiple authorization strategies
+   connectors
+
+ - load balancing
+   
+ 
+ - advanced queries
+  fragments
+
